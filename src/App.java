@@ -4,16 +4,16 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
-
-import org.junit.Test;
+import org.junit.Test; //Must import to run JUnit 5
 
 public class App {
 
     static int count = 0;
 
      /**
-     * @method parseCSV
+     * @method parseCSV parses a CSV file
      * @param path
+     * @param arrVal
      */
     public static void parseCSV(String path, String[] arrVal){
         String[] values;
@@ -21,6 +21,8 @@ public class App {
         int i = 0;
         try{
             BufferedReader br = new BufferedReader(new FileReader(path));
+            //Reads in each value into an array
+            //arrVal is populated with all the values read in
             while((line = br.readLine()) != null){
                 values = line.split(",");
                 arrVal[i] = values [0];
@@ -31,15 +33,17 @@ public class App {
                 i++;
             }
             br.close();
-
-        } catch (FileNotFoundException e){
+        } catch (FileNotFoundException e){ //Handles exceptions/errors
             e.printStackTrace();
         } catch (IOException e){
             e.printStackTrace();
         }
 
     }
-
+    
+    /**
+    * Driver method
+    */
     public static void main(String[] args) throws Exception {
         String path = "lib/LangInput.csv";
         String[] arrVal = new String[114];
@@ -52,6 +56,10 @@ public class App {
         System.out.println(count);
     }
     
+    /**
+    * Test method
+    * Tests to see if the CSV file had been parsed successfully
+    */
     @Test 
     public void testParseCSV(){
         String[] testVal = {"English", "Spanish", "a", "a", "b", "b", "c", "c", "d", "d", "e", "e", "f", "f", "g", "g", "h", "h", "i", "i", "j", "j", "k", "k", "l", "l", "m", 
@@ -65,10 +73,10 @@ public class App {
         int k = 0;
         while (k < 114)
         {
-            assertEquals(testVal[k], actVal[k]);
+            assertEquals(testVal[k], actVal[k]); //Tests to see each value is properly parsed and stored
             k++;
         }
         
-        assertEquals(114, count);
+        assertEquals(114, count); //Tests to see that there are accurate number of data
     }
 }
