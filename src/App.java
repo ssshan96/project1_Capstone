@@ -65,8 +65,10 @@ public class App {
         int k = 0;
         while (k < 114)
         {
-            assertEquals(114, count);
+            assertEquals(testVal[k], actVal[k]);
             k++;
         }
+        
+        assertEquals(114, count);
     }
 }
