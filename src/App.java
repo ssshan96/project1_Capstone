@@ -67,7 +67,7 @@ public class App {
         "D", "B", "E", "C", "F", "D", "G", "E", "H", "F", "I", "G", "J", "H", "K", "I", "L", "J", "M", "K", "N", "L", "O", "M", "P", "N", "Q", "??", "R", "O", "S", "P", "T",
         "Q", "U", "R", "V", "RR", "W", "S", "X", "T", "Y", "U", "Z", "V", "", "W", "", "X", "", "Y", "", "Z", ""};
 
-        String path = "C:/Users/fbite/Desktop/Classes_Spring2022/Capstone/project1_Capstone/lib/LangInput.csv";
+        String path = "lib/LangInput.csv";
         String[] actVal = new String[114];
         parseCSV(path, actVal);
         int k = 0;
